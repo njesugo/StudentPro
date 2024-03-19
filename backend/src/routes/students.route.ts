@@ -11,12 +11,12 @@ const router = express.Router();
 
 router.get("/", getStudents);
 
-router.get("/:studentId", getStudent);
+router.get("/:id", getStudent);
 
 router.post("/", createStudent);
 
-router.put("/:studentId", updateStudent);
+router.put("/:id", updateStudent);
 
-router.delete("/:studentId", deleteStudent);
+router.delete("/:id", deleteStudent);
 
 export { router };

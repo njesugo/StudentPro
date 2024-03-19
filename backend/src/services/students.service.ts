@@ -5,8 +5,8 @@ const getStudents = async () => {
   return await Student.find();
 };
 
-const getStudent = async (studentId: string) => {
-  return await Student.findOne({ _id: studentId });
+const getStudent = async (id: string) => {
+  return await Student.findOne({ _id: new Types.ObjectId(id) });
 };
 
 const createStudent = async (studentToCreate: IStudent) => {
@@ -15,17 +15,18 @@ const createStudent = async (studentToCreate: IStudent) => {
   return getStudents();
 };
 
-const updateStudent = (studentId: string, studentToUpdate: IStudent) => {
-  return Student.updateOne(
+const updateStudent = async (id: string, studentToUpdate: IStudent) => {
+  await Student.updateOne(
     {
-      _id: new Types.ObjectId(studentId),
+      _id: new Types.ObjectId(id),
     },
     studentToUpdate
   );
+  return getStudents();
 };
 
-const deleteStudent = async (studentId: string) => {
-  await Student.deleteOne({ _id: studentId });
+const deleteStudent = async (id: string) => {
+  await Student.deleteOne({ _id: new Types.ObjectId(id) });
 };
 
 export {
