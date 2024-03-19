@@ -10,7 +10,7 @@ const hostname = "127.0.0.1";
 const port = 5000;
 
 mongoose.connect(
-  `mongodb+srv://<username>:<password>@<domain>>/<dbname>?retryWrites=true&w=majority`
+  `mongodb+srv://<username>:<password>@<domain>.mongodb.net/<dbname>?retryWrites=true&w=majority`
 );
 
 const db = mongoose.connection;
